@@ -56,6 +56,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 <br>
 
 Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "activate".
+
 <br>
 
 Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o nome do ambiente destacado com prefixo do seu prompt de comandos, conforme abaixo:
@@ -75,6 +76,7 @@ deactivate
 <br>
 
 `ATENÇÃO:` Este comando deve ser usado apenas quando não mais for necessário execução no ambiente no ambiente virtual.
+
 <br>
 <br>
 
