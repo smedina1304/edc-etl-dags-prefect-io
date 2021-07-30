@@ -30,7 +30,7 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 <br>
 <br>
 
-1.1. Criando o ambiente virtual chamado **"venv"**:
+1. 1. Criando o ambiente virtual chamado **"venv"**:
 <br>
 
 ```console
@@ -45,7 +45,8 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 <br>
 <br>
-1.2. Ativando o ambiente virtual **"venv"**:
+
+1. 2. Ativando o ambiente virtual **"venv"**:
 <br>
 
 ```console
