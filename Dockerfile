@@ -9,11 +9,9 @@ ENV PYTHONUNBUFFERED=1
 
 # Install pip requirements
 COPY requirements.txt .
-RUN python -m pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
-# Prepare Prefect Cloud Backend
-RUN prefect auth login --key <YOUR-KEY>
-
+# Prepare workdir
 RUN MKDIR /app/dags
 
 COPY ./ /app
