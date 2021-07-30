@@ -19,6 +19,8 @@ RUN MKDIR /app/dags
 COPY ./ /app
 COPY ./dags /app/dags
 
+RUN chmod -R 755 /app
+
 WORKDIR /app
 
 
