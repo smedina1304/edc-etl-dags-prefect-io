@@ -30,7 +30,7 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 <br>
 <br>
 
-1.2- Criando o ambiente virtual chamado **"venv"**:
+1.2- Criando o ambiente virtual chamado **`"venv"`**:
 <br>
 
 ```console
@@ -38,7 +38,7 @@ python -m venv venv
 ```
 <br>
 
-Obs: No windows para funcionamento do **"venv"** pode ser necessário executar o seguinte comando via Powershell:
+Obs: No windows para funcionamento do **`"venv"`** pode ser necessário executar o seguinte comando via Powershell:
 <br>
 
 ```console
@@ -47,7 +47,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 <br>
 <br>
 
-1.3- Ativando o ambiente virtual **"venv"**:
+1.3- Ativando o ambiente virtual **`"venv"`**:
 <br>
 
 ```console
@@ -55,19 +55,19 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 <br>
 
-Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "activate".
+Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "`activate`".
 
 <br>
 
 Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o nome do ambiente destacado com prefixo do seu prompt de comandos, conforme abaixo:
 <br>
 
-```js
-'(venv)' PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
+```shell
+`(venv)` PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
 ```
 <br>
 
-Para desativar o ambiente virtual **"venv"**:
+Para desativar o ambiente virtual **`"venv"`**:
 <br>
 
 ```console
@@ -80,7 +80,7 @@ deactivate
 <br>
 <br>
 
-1.4- Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
+1.4- Instalação do pacote do Prefect no **`"venv"`**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
 <br>
 
 ```python
