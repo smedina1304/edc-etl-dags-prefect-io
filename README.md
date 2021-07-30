@@ -14,7 +14,7 @@ Link para referência de documentação do PREFECT CORE:
 
 <br>
 
-## 1-Preparação do Ambiente de Desenvolvimento:
+## 1- Preparação do Ambiente de Desenvolvimento:
 O ambiente de desenvolvimento será composto:
 - Linguagem Python 3.9 (ou superior)
 - VS Code (IDE)
@@ -24,13 +24,13 @@ O ambiente de desenvolvimento será composto:
 
 <br>
 
-1.1 Criação do ambiente de virtual Python para download das libs do Prefect.
+1.1- Criação do ambiente de virtual Python para download das libs do Prefect.
 <br>
 Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório base do projeto "dags-perfect-io".
 <br>
 <br>
 
-1.2. Criando o ambiente virtual chamado **"venv"**:
+1.2- Criando o ambiente virtual chamado **"venv"**:
 <br>
 
 ```console
@@ -46,7 +46,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 <br>
 <br>
 
-1.3. Ativando o ambiente virtual **"venv"**:
+1.3- Ativando o ambiente virtual **"venv"**:
 <br>
 
 ```console
@@ -65,6 +65,7 @@ Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o n
 <br>
 Para desativar o ambiente virtual **"venv"**:
 <br>
+
 ```console
 deactivate
 ```
@@ -73,7 +74,7 @@ deactivate
 <br>
 <br>
 
-1.4. Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
+1.4- Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
 <br>
 ```python
 pip install prefect
