@@ -12,7 +12,8 @@ Link para referência de documentação do PREFECT CORE:
 - https://www.prefect.io/core
 - https://docs.prefect.io/core/
 
-<br><br>
+<br>
+
 ## Preparação do Ambiente de Desenvolvimento:
 O ambiente de desenvolvimento será composto:
 - Linguagem Python 3.9 (ou superior)
@@ -27,59 +28,66 @@ O ambiente de desenvolvimento será composto:
 <br>
 Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório base do projeto "dags-perfect-io".
 <br>
+<br>
 
-   1.1. Criando o ambiente virtual chamado **"venv"**:<br>
+1.1. Criando o ambiente virtual chamado **"venv"**:
+<br>
 
-   ```console
-   python -m venv venv
-   ```
-   <br>
-   Obs: No windows para funcionamento do "venv" pode ser necessário executar o seguinte comando via Powershell: <br>
+```console
+python -m venv venv
+```
+<br>
+Obs: No windows para funcionamento do "venv" pode ser necessário executar o seguinte comando via Powershell:
+<br>
 
-   ```console
-   Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-   ```
-   <br><br>
-   1.2. Ativando o ambiente virtual **"venv"**:
-   <br>
+```console
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
+<br>
+<br>
+1.2. Ativando o ambiente virtual **"venv"**:
+<br>
 
-   ```console
-   .\venv\Scripts\Activate.ps1
-   ```
-   Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "activate".
-   <br>
+```console
+.\venv\Scripts\Activate.ps1
+```
+<br>
+Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "activate".
+<br>
 
-   Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o nome do ambiente destacado com prefixo do seu prompt de comandos, conforme abaixo:
-   
-   ```js
-   '(venv)' PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
-   ```
-   <br>
-   Para desativar o ambiente virtual **"venv"**:
+Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o nome do ambiente destacado com prefixo do seu prompt de comandos, conforme abaixo:
+<br>
 
-   ```console
-   deactivate
-   ```
-   `ATENÇÃO:` Este comando deve ser usado apenas quando não mais for necessário execução no ambiente no ambiente virtual.
-   <br>
-   <br>
+```js
+'(venv)' PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
+```
+<br>
+Para desativar o ambiente virtual **"venv"**:
+<br>
+```console
+deactivate
+```
+<br>
+`ATENÇÃO:` Este comando deve ser usado apenas quando não mais for necessário execução no ambiente no ambiente virtual.
+<br>
+<br>
 
-   1.3. Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
-   <br>
-   ```python
-   pip install prefect
-   ```
-   <br>
-   <br>
-   Dependencias Opcionais:<br>
-   O Prefect vem com várias dependências opcionais, que podem ser instaladas usando a sintaxe "extras", seguir as instruções no site se necessário alguma instalação adicional.
-   <br>
+1.3. Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
+<br>
+```python
+pip install prefect
+```
+<br>
+<br>
+Dependencias Opcionais:<br>
+O Prefect vem com várias dependências opcionais, que podem ser instaladas usando a sintaxe "extras", seguir as instruções no site se necessário alguma instalação adicional.
+<br>
 
-   ```python
-   pip install "prefect[extra_1, extra_2]"
-   ```
-   <br>
-   <br>
+```python
+pip install "prefect[extra_1, extra_2]"
+```
+<br>
+<br>
 
 ## Conta no Prefect Cloud:
 
@@ -239,7 +247,7 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 
       - No terminal, acesse a pasta do Flow *'dags\flow-test-hello'* e execute a chamada via Python:
    <br>
-   
+
          ```python
          cd .\dags\flow-test-hello
          python test-hello.py
