@@ -89,7 +89,8 @@ pip install prefect
 <br>
 <br>
 Dependencias Opcionais:<br>
-O Prefect vem com várias dependências opcionais, que podem ser instaladas usando a sintaxe "extras", seguir as instruções no site se necessário alguma instalação adicional.
+
+O Prefect vem com várias dependências opcionais, que podem ser instaladas usando a sintaxe `"extras"`, seguir as instruções no site se necessário alguma instalação adicional.
 <br>
 
 ```python
@@ -98,40 +99,40 @@ pip install "prefect[extra_1, extra_2]"
 <br>
 <br>
 
-## Conta no Prefect Cloud:
+## 2- Conta no Prefect Cloud:
 
-2. Criação de uma conta no ambiente em nuvem do Prefect. Importante os dados contidos nas intruções abaixo foram atualizadas com base em julho/2021, caso alguma difierença for observada seguir as instruções existentes no site do produto.
+2.1- Criação de uma conta no ambiente em nuvem do Prefect. Importante os dados contidos nas intruções abaixo foram atualizadas com base em julho/2021, caso alguma difierença for observada seguir as instruções existentes no site do produto.
 <br>
 
-   2.1. Acessar https://www.prefect.io/ e selecionar a opção "GET STARTED":<br>
-   <br>
-   <p align="left">
-      <img src="docs\images\prefect-getstarted-01.png" width="400" style="max-width: 400px;">
-   </p>
-   <br>
+2.2- Acessar https://www.prefect.io/ e selecionar a opção `"GET STARTED"`:<br>
+<br>
+<p align="left">
+   <img src="docs\images\prefect-getstarted-01.png" width="400" style="max-width: 400px;">
+</p>
+<br>
 
-   2.2. Buscar na tela a opção "START FOR FREE"
-   <br>
-   <p align="left">
-      <img src="docs\images\prefect-getstarted-02.png" width="400" style="max-width: 400px;">
-   </p>
-   <br>
+2.3- Buscar na tela a opção `"START FOR FREE"`
+<br>
+<p align="left">
+   <img src="docs\images\prefect-getstarted-02.png" width="400" style="max-width: 400px;">
+</p>
+<br>
 
-   2.2. Informar uma conta de email para conexão, ou a conta do Google ou GitHub:
-   <br>
-   <p align="left">
-      <img src="docs\images\prefect-getstarted-03.png" width="200" style="max-width: 200px;">
-   </p>
-   <br>
-   Não é necessário entrar com informações de cartão de credito.
-   Após a informação da conta de acesso, será necessário confirmar um nome para conta e uma url para compartilhamento entre um grupo. Estes pontos não serão relevantes e abordados neste tutorial, assim confirme as informações para validar o acesso e seguir para o Dashboard.
-   <br>
-   Ocorrendo tudo ok, será apresentada a tela abaixo, acesse o dashboard para verificar o seu ambiente:
-   <br><br>
-   <p align="left">
-      <img src="docs\images\prefect-getstarted-04.png" width="400" style="max-width: 400px;">
-   </p>
-   <br>
+2.4- Informar uma conta de email para conexão, ou a conta do Google ou GitHub:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-getstarted-03.png" width="200" style="max-width: 200px;">
+</p>
+<br>
+Não é necessário entrar com informações de cartão de credito. Após a informação da conta de acesso, será necessário confirmar um nome para conta e uma url para compartilhamento entre um grupo. Estes pontos não serão relevantes e abordados neste tutorial, assim confirme as informações para validar o acesso e seguir para o Dashboard.
+<br>
+
+Ocorrendo tudo ok, será apresentada a tela abaixo, acesse o dashboard para verificar o seu ambiente:
+<br><br>
+<p align="left">
+   <img src="docs\images\prefect-getstarted-04.png" width="400" style="max-width: 400px;">
+</p>
+<br>
 
 ## Parametrizações do Prefect no ambiente:
 
