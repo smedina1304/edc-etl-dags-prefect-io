@@ -195,9 +195,11 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
    4.2. Observe que no final do código existe uma instrução de registro, especificando um projeto. É necessário que seja criado o projeto *'My Tests'* para que o *Agent* registre o Flow no Prefect e o mesmo possa ser monitorado.
    <br>
       - Criando o projeto via comando no terminal:
+         <br>
          ```python
          prefect create project 'My Tests'
          ```
+         <br>
          Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
          <br>
          ```console
@@ -233,10 +235,12 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
    <br>
 
       - No terminal, acesse a pasta do Flow *'dags\flow-test-hello'* e execute a chamada via Python:
+   <br>
          ```python
          cd .\dags\flow-test-hello
          python test-hello.py
          ```
+         <br>
          Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
             <br>
             <p align="left">
@@ -245,35 +249,35 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
          <br>
 
       - No Prefect Cloud, na Dashbord Agent, poderá verifica o registro do seu processo. Navegue no seu Dashbord para verificar as informações disponibilizadas e conhecer os recursos:
-         <br>
+   <br>
          <p align="left">
             <img src="docs\images\prefect-Run-Test-02.png" width="200" style="max-width: 200px;">
          </p>
          <br>
 
       - Localize a opção `FLOWS` no Menu abaixo ao Nome do Projeto e acesse, em seguida localize na lista o flow `'flow-test-hello'`, e acesse:
-         <br>
+   <br>
          <p align="left">
             <img src="docs\images\prefect-Run-Test-03.png" width="200" style="max-width: 200px;">
          </p>
          <br>
 
       - Para Executar de forma manual utilize o `QUICK RUN`:
-         <br>
+   <br>
          <p align="left">
             <img src="docs\images\prefect-Run-Test-04.png" width="70" style="max-width: 70px;">
          </p>
          <br>
 
       - Após executar verifique e navegue no Dashboard para analisar as informações registradas:
-         <br>
+   <br>
          <p align="left">
             <img src="docs\images\prefect-Run-Test-05.png" width="500" style="max-width: 500px;">
          </p>
          <br>  
 
       - Para analisar o `LOG` da execução, acesse `RUNS -> [Name ID \ Start Datetime ] -> LOGS`. Como foi utilizado a opção `QUICK RUN` o Prefect define de forma aleatório um ID (Name) como label da execução, para este exemplo foi `rose-sloth`, este nome pode ser alterado no dashboar passando os parametros para executar ou pelo próprio códido, para detalhes busque na documentação:
-         <br>
+   <br>
          <p align="left">
             <img src="docs\images\prefect-Run-Test-06.png" width="500" style="max-width: 500px;">
          </p>
@@ -287,6 +291,8 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
             logger = prefect.context.get("logger")
             logger.info("Test Hello, Cloud!")
          ```
+         <br>
+         <br>
 
 
 
