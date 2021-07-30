@@ -196,15 +196,18 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
    <br>
       - Criando o projeto via comando no terminal:
          <br>
+
          ```python
          prefect create project 'My Tests'
          ```
          <br>
          Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
          <br>
+
          ```console
          My Tests created
          ```
+
          <br>
          <br>
 
@@ -236,6 +239,7 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 
       - No terminal, acesse a pasta do Flow *'dags\flow-test-hello'* e execute a chamada via Python:
    <br>
+   
          ```python
          cd .\dags\flow-test-hello
          python test-hello.py
