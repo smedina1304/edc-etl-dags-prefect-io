@@ -37,7 +37,8 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 python -m venv venv
 ```
 <br>
-Obs: No windows para funcionamento do "venv" pode ser necessário executar o seguinte comando via Powershell:
+
+Obs: No windows para funcionamento do **"venv"** pode ser necessário executar o seguinte comando via Powershell:
 <br>
 
 ```console
@@ -53,6 +54,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 .\venv\Scripts\Activate.ps1
 ```
 <br>
+
 Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "activate".
 <br>
 
@@ -63,6 +65,7 @@ Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o n
 '(venv)' PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
 ```
 <br>
+
 Para desativar o ambiente virtual **"venv"**:
 <br>
 
@@ -70,12 +73,14 @@ Para desativar o ambiente virtual **"venv"**:
 deactivate
 ```
 <br>
+
 `ATENÇÃO:` Este comando deve ser usado apenas quando não mais for necessário execução no ambiente no ambiente virtual.
 <br>
 <br>
 
 1.4- Instalação do pacote do Prefect no **"venv"**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
 <br>
+
 ```python
 pip install prefect
 ```
