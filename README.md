@@ -126,6 +126,7 @@ pip install "prefect[extra_1, extra_2]"
 <br>
 Não é necessário entrar com informações de cartão de credito. Após a informação da conta de acesso, será necessário confirmar um nome para conta e uma url para compartilhamento entre um grupo. Estes pontos não serão relevantes e abordados neste tutorial, assim confirme as informações para validar o acesso e seguir para o Dashboard.
 <br>
+<br>
 
 Ocorrendo tudo ok, será apresentada a tela abaixo, acesse o dashboard para verificar o seu ambiente:
 <br><br>
@@ -134,73 +135,72 @@ Ocorrendo tudo ok, será apresentada a tela abaixo, acesse o dashboard para veri
 </p>
 <br>
 
-## Parametrizações do Prefect no ambiente:
+## 3- Parametrizações do Prefect no ambiente:
 
-3. Definindo as configurações para o Prefect utilizar o "`Backend de Orquestração`" em Nuvem. O Prefect suporta dois tipos de backend, Cloud(Nuvem do próprio Prefect) e Server(Sua Infraestrutura), com o objetivo é a utilização em nuvem seguiremos com esta opção. Instruções no Link: https://docs.prefect.io/orchestration/tutorial/overview.html#select-an-orchestration-backend
+3.1- Definindo as configurações para o Prefect utilizar o "`Backend de Orquestração`" em Nuvem. O Prefect suporta dois tipos de backend, Cloud(Nuvem do próprio Prefect) e Server(Sua Infraestrutura), com o objetivo é a utilização em nuvem seguiremos com esta opção. Instruções no Link: https://docs.prefect.io/orchestration/tutorial/overview.html#select-an-orchestration-backend
 <br>
 <br>
 
-   3.1. Devemos rodar o seguinte comando no **venv** do nosso projeto para direcionar para nuvem:
-   <br>
+3.2- Devemos rodar o seguinte comando no **`"venv"`** do nosso projeto para direcionar para nuvem:
+<br>
 
-   ```shell
-   prefect backend cloud
-   ```
-   <br>
-   Assim que executado o comando deve ser retornado a sequinte mensagem:
-   <br>
+```shell
+prefect backend cloud
+```
+<br>
+Assim que executado o comando deve ser retornado a sequinte mensagem:
+<br>
 
-   ```python
-   Backend switched to cloud
-   ```
-   <br>
-   <br>
+```shell
+Backend switched to cloud
+```
+<br>
+<br>
 
-   3.2. Definindo o API key e configurando no ambiente:
+3.3- Definindo o API key e configurando no ambiente:
 
-   - Acessar a sua conta em: https://cloud.prefect.io.
+- Acessar a sua conta em: https://cloud.prefect.io.
 
-   - Navegue até [API Keys page](https://cloud.prefect.io/user/keys). No menu do usuário no canto superior direito, vá para `Account Settings -> API Keys -> Create An API Key`.
+- Navegue até [API Keys page](https://cloud.prefect.io/user/keys). No menu do usuário no canto superior direito, vá para `Account Settings -> API Keys -> Create An API Key`.
 
-   - Copie a chave criada, e guarde em lugar seguro.
+- Copie a chave criada, e guarde em lugar seguro.
 
-   - Entrar com o comando do `Prefect CLI`.
-   <br>
+- Entrar com o comando do `Prefect CLI`.
+<br>
 
-   ```python
-   prefect auth login --key <YOUR-KEY>
-   ```
-   <br>
-   Assim que executado o comando deve ser retornado a sequinte mensagem, confirmando a configuração com sua conta no Prefect Cloud:
-   <br>
+```python
+prefect auth login --key <YOUR-KEY>
+```
+<br>
+Assim que executado o comando deve ser retornado a sequinte mensagem, confirmando a configuração com sua conta no Prefect Cloud:
+<br>
 
-   ```console
-   Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-team-s-account)
-   ```
-   <br>
-   <br>
+```console
+Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-team-s-account)
+```
+<br>
+<br>
 
 
-   Obs: Para este tutorial foi gerado uma chave com validade, apenas para ilustrar este tutorial, porem a mesma foi inativada logo depois.
-   <br><br>
-   <p align="left">
-      <img src="docs\images\prefect-API-Key-01.png" width="200" style="max-width: 200px;">
-   </p>
+Obs: Para este tutorial foi gerado uma chave com validade, apenas para ilustrar este tutorial, porem a mesma foi inativada logo depois.
+<br><br>
+<p align="left">
+   <img src="docs\images\prefect-API-Key-01.png" width="200" style="max-width: 200px;">
+</p>
 
-   <br>
-   <br>
+<br>
+<br>
 
-   3.3. Para consulta de suas chaves no ambiente do Prefect, pode ser utilizado o comando abaixo:
-   <br>
+3.4- Para consulta de suas chaves no ambiente do Prefect, pode ser utilizado o comando abaixo:
+<br>
 
-   ```python
-   prefect auth list-keys
-   ```
-   <br>
-   Para mais detalhes sobre as chaves consultar a documentação oficial em: https://docs.prefect.io/orchestration/concepts/api_keys.html#using-api-keys
-   <br>
-   <br>
-   <br>
+```python
+prefect auth list-keys
+```
+<br>
+Para mais detalhes sobre as chaves consultar a documentação oficial em: https://docs.prefect.io/orchestration/concepts/api_keys.html#using-api-keys
+<br>
+<br>
 
 ## Executando o Primeiro Teste:
 
