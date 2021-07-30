@@ -182,7 +182,7 @@ Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-team-s-account)
 <br>
 
 
-Obs: Para este tutorial foi gerado uma chave com validade, apenas para ilustrar este tutorial, porem a mesma foi inativada logo depois.
+Obs: Para este tutorial foi gerado uma chave com validade apenas para ilustrar este tutorial, porem a mesma foi inativada logo depois. Então é necessário você gere a chave com o seu usuário e a utilize para rodar este exemplo.
 <br><br>
 <p align="left">
    <img src="docs\images\prefect-API-Key-01.png" width="200" style="max-width: 200px;">
@@ -202,119 +202,122 @@ Para mais detalhes sobre as chaves consultar a documentação oficial em: https:
 <br>
 <br>
 
-## Executando o Primeiro Teste:
+## 4- Executando o Primeiro Teste:
 
-4. Primeiro Teste para validar toda preparação e configuração do ambiente.
+4.1- Primeiro Teste para validar toda preparação e configuração do ambiente.
 <br>
 
-   4.1. Verifique o código de exemplo em *'dags\flow-test-hello\test-hello.py'*
+4.2- Verifique o código de exemplo em `*'dags\flow-test-hello\test-hello.py'*`.
+<br>
+<br>
+
+4.3- Observe que no final do código existe uma instrução de registro, especificando um projeto. É necessário que seja criado o projeto `*'My Tests'*` para que o `*Agent*` registre o Flow no Prefect e o mesmo possa ser monitorado.
+<br>
+- Criando o projeto via comando no terminal:
+<br>
+
+```python
+prefect create project 'My Tests'
+```
+<br>
+Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
+<br>
+
+```console
+My Tests created
+```
+
+<br>
+<br>
+
+- Criando o Projeto via Dashboard Prefect Cloud:
+<br>
+- Acesse o seu ambiente no Prefect Cloud: https://cloud.prefect.io.
+
+- No lado Direito, próximo ao canto superior, clique em: `All Project -> New Project`.
    <br>
+   <p align="left">
+      <img src="docs\images\prefect-New-Project-01.png" width="200" style="max-width: 200px;">
+   </p>
+
+   - Entre com o nome do projeto *'My Tests'* e confirme.
    <br>
-   4.2. Observe que no final do código existe uma instrução de registro, especificando um projeto. É necessário que seja criado o projeto *'My Tests'* para que o *Agent* registre o Flow no Prefect e o mesmo possa ser monitorado.
+   <p align="left">
+      <img src="docs\images\prefect-New-Project-02.png" width="200" style="max-width: 200px;">
+   </p>
+
+- Selecione o projeto para visualizar os Flow que forem ou estiverem registados, no mesmo caminho da criação, porem agora selecionando o Projeto Desejado.
    <br>
-      - Criando o projeto via comando no terminal:
-         <br>
+   <p align="left">
+      <img src="docs\images\prefect-New-Project-03.png" width="200" style="max-width: 200px;">
+   </p>
+<br>
+<br>
 
-         ```python
-         prefect create project 'My Tests'
-         ```
-         <br>
-         Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
-         <br>
+4.4- Executando o Flow `*'dags\flow-test-hello\test-hello.py'*`.
+<br>
 
-         ```console
-         My Tests created
-         ```
+- No terminal, acesse a pasta do Flow `*'dags\flow-test-hello'*` e execute a chamada via Python:
+<br>
 
-         <br>
-         <br>
-
-      - Criando o Projeto via Dashboard Prefect Cloud:
+```python
+cd .\dags\flow-test-hello
+python test-hello.py
+```
+<br>
+Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
    <br>
-         - Acesse o seu ambiente no Prefect Cloud: https://cloud.prefect.io.
+   <p align="left">
+      <img src="docs\images\prefect-Run-Test-01.png" width="500" style="max-width: 500px;">
+   </p>
+<br>
 
-         - No lado Direito, próximo ao canto superior, clique em: `All Project -> New Project`.
-            <br>
-            <p align="left">
-               <img src="docs\images\prefect-New-Project-01.png" width="200" style="max-width: 200px;">
-            </p>
+- No Prefect Cloud, na Dashbord Agent, poderá verifica o registro do seu processo. Navegue no seu Dashbord para verificar as informações disponibilizadas e conhecer os recursos:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-02.png" width="200" style="max-width: 200px;">
+</p>
+<br>
 
-          - Entre com o nome do projeto *'My Tests'* e confirme.
-            <br>
-            <p align="left">
-               <img src="docs\images\prefect-New-Project-02.png" width="200" style="max-width: 200px;">
-            </p>
+- Localize a opção `FLOWS` no Menu abaixo ao Nome do Projeto e acesse, em seguida localize na lista o flow `'flow-test-hello'`, e acesse:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-03.png" width="200" style="max-width: 200px;">
+</p>
+<br>
 
-         - Selecione o projeto para visualizar os Flow que forem ou estiverem registados, no mesmo caminho da criação, porem agora selecionando o Projeto Desejado.
-            <br>
-            <p align="left">
-               <img src="docs\images\prefect-New-Project-03.png" width="200" style="max-width: 200px;">
-            </p>
-   <br>
-   <br>
-   4.3. Executando o Flow *'dags\flow-test-hello\test-hello.py'*
-   <br>
+- Para Executar de forma manual utilize o `QUICK RUN`:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-04.png" width="70" style="max-width: 70px;">
+</p>
+<br>
 
-      - No terminal, acesse a pasta do Flow *'dags\flow-test-hello'* e execute a chamada via Python:
-   <br>
+- Após executar verifique e navegue no Dashboard para analisar as informações registradas:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-05.png" width="500" style="max-width: 500px;">
+</p>
+<br>  
 
-         ```python
-         cd .\dags\flow-test-hello
-         python test-hello.py
-         ```
-         <br>
-         Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
-            <br>
-            <p align="left">
-               <img src="docs\images\prefect-Run-Test-01.png" width="500" style="max-width: 500px;">
-            </p>
-         <br>
+- Para analisar o `LOG` da execução, acesse `RUNS -> [Name ID \ Start Datetime ] -> LOGS`. Como foi utilizado a opção `QUICK RUN` o Prefect define de forma aleatório um ID (Name) como label da execução, para este exemplo foi `rose-sloth`, este nome pode ser alterado no dashboar passando os parametros para executar ou pelo próprio códido, para detalhes busque na documentação:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-06.png" width="500" style="max-width: 500px;">
+</p>
+<br>
 
-      - No Prefect Cloud, na Dashbord Agent, poderá verifica o registro do seu processo. Navegue no seu Dashbord para verificar as informações disponibilizadas e conhecer os recursos:
-   <br>
-         <p align="left">
-            <img src="docs\images\prefect-Run-Test-02.png" width="200" style="max-width: 200px;">
-         </p>
-         <br>
+Acima a mensagem escrita no `LOG`, foi definida pela instrução no código pela task `say_hello()`:
+<br>
 
-      - Localize a opção `FLOWS` no Menu abaixo ao Nome do Projeto e acesse, em seguida localize na lista o flow `'flow-test-hello'`, e acesse:
-   <br>
-         <p align="left">
-            <img src="docs\images\prefect-Run-Test-03.png" width="200" style="max-width: 200px;">
-         </p>
-         <br>
-
-      - Para Executar de forma manual utilize o `QUICK RUN`:
-   <br>
-         <p align="left">
-            <img src="docs\images\prefect-Run-Test-04.png" width="70" style="max-width: 70px;">
-         </p>
-         <br>
-
-      - Após executar verifique e navegue no Dashboard para analisar as informações registradas:
-   <br>
-         <p align="left">
-            <img src="docs\images\prefect-Run-Test-05.png" width="500" style="max-width: 500px;">
-         </p>
-         <br>  
-
-      - Para analisar o `LOG` da execução, acesse `RUNS -> [Name ID \ Start Datetime ] -> LOGS`. Como foi utilizado a opção `QUICK RUN` o Prefect define de forma aleatório um ID (Name) como label da execução, para este exemplo foi `rose-sloth`, este nome pode ser alterado no dashboar passando os parametros para executar ou pelo próprio códido, para detalhes busque na documentação:
-   <br>
-         <p align="left">
-            <img src="docs\images\prefect-Run-Test-06.png" width="500" style="max-width: 500px;">
-         </p>
-         <br> 
-         Acima a mensagem escrita mo LOG, foi definida pela instrução escrita no código pela task `say_hello()`:
-         <br>
-         
-         ```python
-         @task
-         def say_hello():
-            logger = prefect.context.get("logger")
-            logger.info("Test Hello, Cloud!")
-         ```
-         <br>
-         <br>
+```python
+@task
+def say_hello():
+   logger = prefect.context.get("logger")
+   logger.info("Test Hello, Cloud!")
+```
+<br>
+<br>
 
 
 
