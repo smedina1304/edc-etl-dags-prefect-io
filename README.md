@@ -45,9 +45,12 @@ Obs: No windows para funcionamento do **`"venv"`** pode ser necessário executar
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 <br>
-<br>
 
 1.3- Ativando o ambiente virtual **`"venv"`**:
+<br>
+<br>
+
+No Powershell utilizar "`activate.bat`".
 <br>
 
 ```console
@@ -55,8 +58,20 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 <br>
 
-Obs: via CMD utilizar "`activate.bat`", no `Linux` ou `MAC` utiliar "`activate`".
+No CMD utilizar "`activate.bat`".
+<br>
 
+```console
+.\venv\Scripts\activate.bat
+```
+
+<br>
+No `Linux` ou `MAC` utiliar "`activate`".
+<br>
+
+```console
+source .venv/bin/activate
+```
 <br>
 
 Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o nome do ambiente destacado com prefixo do seu prompt de comandos, conforme abaixo:
