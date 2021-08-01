@@ -7,12 +7,12 @@ from prefect.schedules import IntervalSchedule
 from datetime import datetime, timedelta
 from io import BytesIO
 
-csvUrl = 'https://github.com/BigDataGal/Python-for-Data-Science/blob/master/titanic-train.csv'
+csvUrl = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'
 dirPath = '/Users/sergiomedina/Downloads/'
 retry_delay = timedelta(minutes=15)
 
 @task
-def download_csv():
+def download_csv(csvUrl, dirPath):
     # Logger
     logger = prefect.context.get("logger")
     logger.info(f"Download CSV: {csvUrl}")
@@ -23,15 +23,17 @@ def download_csv():
 
         # Verificando Diretorio Output
         if not dirPath.endswith('/'):
-            dirOut = dirPath + '/'
+            dirPath = dirPath + '/'
     
         # Criando a pasta
-        dirOut = dirPath + 'CSV/'
+        dirPath = dirPath + 'CSV/'
         os.makedirs(dirPath, exist_ok=True)
+        logger.info(f"Path CSV: {dirPath}")
     
         # Granvando o arquivo no diretório
         dirOut = dirPath + 'titanic-train.csv'
-        with open(dirOut, 'w') as f:
+        logger.info(f"Arquivo CSV: {dirOut}")
+        with open(dirOut, 'wb') as f:
             f.write(req.content)
             f.close()
 
@@ -40,7 +42,18 @@ def download_csv():
     else:
         dirOut = None
     
-    return (req.status_code==200), dirOut
+    return dirOut
+
+
+@task
+def existe_csv(fileCSV):
+    # Logger
+    logger = prefect.context.get("logger")
+
+    check = os.path.exists(fileCSV)
+    logger.info(f"Arquivo CSV [exists={check}]: {fileCSV}")
+
+    return check
 
 
 @task
@@ -81,18 +94,22 @@ def exibe_dataset(df):
 def termino():
     # Logger 
     logger = prefect.context.get("logger")
-    logger.info("Finalização do fluxo.")
+    logger.info("Finalização do fluxo sem processamento.")
 
 
 # Definição do Fluxo (flow) e a sequencia das tasks
 with Flow("flow-titanic") as flow:
-    check_download, fcvs = download_csv()
+    fcvs = download_csv(csvUrl, dirPath)
+    existe_csv = existe_csv(fcvs)
 
-    with case(check_download, True):
+    with case(existe_csv, True):
         df = ler_csv(fcvs)
         med = calcula_media_idade(df)
         exibe_media_calculada(df)
         exibe_dataset(df)
+
+    with case(existe_csv, False):
+        termino()
 
 
 # Registro do flow em um projeto
