@@ -33,9 +33,11 @@ def downloadCSV():
     # Granvando o arquivo no diretório
     dirOut = dirPath + 'titanic-train.csv'
     with open(dirOut, 'w') as f:
-        f.write(filebytes)
+        f.write(filebytes.getbuffer())
         f.close()
     
+    filebytes.close()
+
     return dirOut
 
 
