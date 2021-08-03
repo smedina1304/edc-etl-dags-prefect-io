@@ -8,7 +8,13 @@ from datetime import datetime, timedelta
 from io import BytesIO
 
 csvUrl = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv'
-dirPath = '/Users/sergiomedina/Downloads/'
+
+# MAC 
+#dirPath = '/Users/sergiomedina/Downloads/'
+
+# Windows
+dirPath = 'C:/Users/ych885/Downloads/'
+
 retry_delay = timedelta(minutes=15)
 
 @task
@@ -65,7 +71,7 @@ def ler_csv(fileCSV):
     # Carrega os dados do CSV em um Dataframe
     df = pd.read_csv(fileCSV)
 
-    logger.info(f"Dataset com [{df.shape[0]}]linhas e [{df.shape[0]}]colunas.")
+    logger.info(f"Dataset com [{df.shape[0]}]linhas e [{df.shape[1]}]colunas.")
 
     return df
 
@@ -73,6 +79,8 @@ def ler_csv(fileCSV):
 @task
 def calcula_media_idade(df):
     # Calculo da Média
+    logger = prefect.context.get("logger")
+    logger.info(f"Executando o calculo da média.")
     return df.Age.mean()
 
 
@@ -105,7 +113,7 @@ with Flow("flow-titanic") as flow:
     with case(existe_csv, True):
         df = ler_csv(fcvs)
         med = calcula_media_idade(df)
-        exibe_media_calculada(df)
+        exibe_media_calculada(med)
         exibe_dataset(df)
 
     with case(existe_csv, False):
