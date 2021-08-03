@@ -7,8 +7,13 @@ echo "-> SETUP: TZ = UTC"
 export TZ=UTC
 
 
+echo "-> Install libs"
+pip3 install numpy
+pip3 install pandas
+pip3 install requests
+
 echo "-> Install Prefect Core"
-pip install prefect
+pip3 install prefect
 
 echo "-> Prefect Backend Cloud..."
 prefect backend cloud
