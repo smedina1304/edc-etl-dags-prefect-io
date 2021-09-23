@@ -4,7 +4,7 @@
 
 # dags-prefect-io
 ## Objetivo:
-Este projeto tem como base o [PREFECT CORE](https://www.prefect.io/core) (open-source workflow). Estaremos buscando atender o processamento de Dataflows distribuidos pelo engine do prefect executando em docker containers, viabilizando o processamento distribuido, utilizando o ambiente em nuvem do [prefect.io](https://www.prefect.io/) como orquestrador e dashboard dos processos.
+Este projeto tem como base o [PREFECT CORE](https://www.prefect.io/core) (open-source workflow). Estaremos buscando atender o processamento de Dataflows distribuidos pelo engine do prefect executando de forma direta na linha de comando via `python` ou em docker containers, viabilizando o processamento distribuido, utilizando o ambiente em nuvem do [prefect.io](https://www.prefect.io/) como orquestrador e dashboard dos processos.
 
 <br>
 
@@ -16,7 +16,7 @@ Link para referência de documentação do PREFECT CORE:
 
 ## 1- Preparação do Ambiente de Desenvolvimento:
 O ambiente de desenvolvimento será composto:
-- Linguagem Python 3.9 (ou superior)
+- Linguagem Python 3.8 (ou superior)
 - VS Code (IDE)
 - Plugins (requeridos): 
    - Python extension for VS Code.
@@ -33,16 +33,16 @@ Obs: todos os comandos ou ações abaixo deveram ser executadas no diretório ba
 1.2- Criando o ambiente virtual chamado **`"venv"`**:
 <br>
 
-```console
-python -m venv venv
+```shell
+   > python -m venv venv
 ```
 <br>
 
 Obs: No windows para funcionamento do **`"venv"`** pode ser necessário executar o seguinte comando via Powershell:
 <br>
 
-```console
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```shell
+   > Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 <br>
 
@@ -50,19 +50,19 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 <br>
 <br>
 
-No Powershell utilizar "`activate.bat`".
+No Windows via Powershell utilizar "`activate.bat`".
 <br>
 
-```console
-.\venv\Scripts\Activate.ps1
+```shell
+   > .\venv\Scripts\Activate.ps1
 ```
 <br>
 
-No CMD utilizar "`activate.bat`".
+No Windows via CMD utilizar "`activate.bat`".
 <br>
 
-```console
-.\venv\Scripts\activate.bat
+```shell
+   > .\venv\Scripts\activate.bat
 ```
 
 <br>
@@ -70,7 +70,7 @@ No `Linux` ou `MAC` utiliar "`activate`".
 <br>
 
 ```console
-source .venv/bin/activate
+   > source .venv/bin/activate
 ```
 <br>
 
@@ -78,7 +78,7 @@ Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o n
 <br>
 
 ```shell
-`(venv)` PS C:\Users\XXXX\Documents\Sources\dags-prefect-io>
+   (venv)
 ```
 <br>
 
@@ -86,7 +86,7 @@ Para desativar o ambiente virtual **`"venv"`**:
 <br>
 
 ```console
-deactivate
+   > deactivate
 ```
 <br>
 
@@ -99,7 +99,7 @@ deactivate
 <br>
 
 ```python
-pip install prefect
+   > pip install prefect
 ```
 <br>
 <br>
@@ -108,8 +108,17 @@ Dependencias Opcionais:<br>
 O Prefect vem com várias dependências opcionais, que podem ser instaladas usando a sintaxe `"extras"`, seguir as instruções no site se necessário alguma instalação adicional.
 <br>
 
-```python
-pip install "prefect[extra_1, extra_2]"
+```shell
+   > pip install "prefect[extra_1, extra_2]"
+```
+<br>
+<br>
+
+`Obervação:` todos os pacotes necessário para executar as DAGs contidas neste projeto estão em `requirements.txt`. Para executar a instalação segue o comanto abaixo.
+<br>
+
+```shell
+   > pip install -r requirements.txt
 ```
 <br>
 <br>
@@ -334,7 +343,18 @@ def say_hello():
 <br>
 <br>
 
+## 5- Executando em um Container Docker:
+<br>
 
+
+5.1- Inicialmente é necessário criar um arquivo de configuração do seu container docker com base em uma imagem, normalmente verifica-se os pré-requisitos necessário para a aplicação com base no sistema operacional. Neste caso foi selecionada a imagem `python:3.8-slim-buster`, que já disponibiliza a instalação do python 3.8 em um sistema baseado em linux, ficando assim a necessidade de configurar a instalação dos pacotes necessários e o programas para serem executados.
+<br>
+
+Iniciamos com a criação de um arquivo `Dockerfile` conforme abaixo:
+
+```docker
+
+```
 
 
 
