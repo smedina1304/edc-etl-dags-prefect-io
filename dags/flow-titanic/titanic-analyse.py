@@ -15,7 +15,16 @@ csvUrl = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/tita
 # Windows
 #dirPath = 'C:/Users/ych885/Downloads/'
 
-dirPath = 'data/'
+dirPath = './data'
+
+listPaths = [
+    '/app/data/',
+    'data/',
+    '../data/',
+    '../../data/',
+    '/Users/sergiomedina/Downloadsx/',
+    'C:/Users/ych885/Downloads/'
+]
 
 retry_delay = timedelta(minutes=15)
 
@@ -24,6 +33,15 @@ def download_csv(csvUrl, dirPath):
     # Logger
     logger = prefect.context.get("logger")
     logger.info(f"Download CSV: {csvUrl}")
+
+    # verify download folder
+    for path in listPaths:
+        if os.path.isdir(path):
+            dirPath=path
+            break
+
+    print(f"### Download folder: {dirPath}")
+    logger.info(f"Download folder: {dirPath}")
 
     # request get CSV
     req = requests.get(csvUrl, stream=True)
