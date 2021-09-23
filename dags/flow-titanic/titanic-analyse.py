@@ -13,7 +13,9 @@ csvUrl = 'https://raw.githubusercontent.com/datasciencedojo/datasets/master/tita
 #dirPath = '/Users/sergiomedina/Downloads/'
 
 # Windows
-dirPath = 'C:/Users/ych885/Downloads/'
+#dirPath = 'C:/Users/ych885/Downloads/'
+
+dirPath = 'data/'
 
 retry_delay = timedelta(minutes=15)
 
