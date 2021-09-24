@@ -4,7 +4,7 @@
 
 # dags-prefect-io
 ## Objetivo:
-Este projeto tem como base o [PREFECT CORE](https://www.prefect.io/core) (open-source workflow). Estaremos buscando atender o processamento de Dataflows distribuidos pelo engine do prefect executando de forma direta na linha de comando via `python` ou em docker containers, viabilizando o processamento distribuido, utilizando o ambiente em nuvem do [prefect.io](https://www.prefect.io/) como orquestrador e dashboard dos processos.
+Este projeto tem como base o *[PREFECT CORE](https://www.prefect.io/core)* (open-source workflow). Estaremos buscando atender o processamento de Dataflows distribuidos pelo engine do prefect executando de forma direta na linha de comando via `python` ou em docker containers, viabilizando o processamento distribuido, utilizando o ambiente em nuvem do *[prefect.io](https://www.prefect.io/)* como orquestrador e dashboard dos processos.
 
 <br>
 
@@ -98,7 +98,7 @@ Para desativar o ambiente virtual **`"venv"`**:
 1.4- Instalação do pacote do Prefect no **`"venv"`**, detalhamento no link de documentação do produto https://docs.prefect.io/core/getting_started/installation.html 
 <br>
 
-```python
+```shell
    > pip install prefect
 ```
 <br>
@@ -169,14 +169,14 @@ Ocorrendo tudo ok, será apresentada a tela abaixo, acesse o dashboard para veri
 <br>
 
 ```shell
-prefect backend cloud
+   > prefect backend cloud
 ```
 <br>
 Assim que executado o comando deve ser retornado a sequinte mensagem:
 <br>
 
 ```shell
-Backend switched to cloud
+   Backend switched to cloud
 ```
 <br>
 <br>
@@ -192,22 +192,21 @@ Backend switched to cloud
 - Entrar com o comando do `Prefect CLI`.
 <br>
 
-```python
-prefect auth login --key <YOUR-KEY>
+```shell
+   > prefect auth login --key <YOUR-KEY>
 ```
 <br>
 Assim que executado o comando deve ser retornado a sequinte mensagem, confirmando a configuração com sua conta no Prefect Cloud:
 <br>
 
 ```console
-Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-team-s-account)
+   Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-xxxx-xxxxx)
 ```
-<br>
 <br>
 
 
 Obs: Para este tutorial foi gerado uma chave com validade apenas para ilustrar este tutorial, porem a mesma foi inativada logo depois. Então é necessário você gere a chave com o seu usuário e a utilize para rodar este exemplo.
-<br><br>
+<br>
 <p align="left">
    <img src="docs\images\prefect-API-Key-01.png" width="200" style="max-width: 200px;">
 </p>
@@ -218,8 +217,8 @@ Obs: Para este tutorial foi gerado uma chave com validade apenas para ilustrar e
 3.4- Para consulta de suas chaves no ambiente do Prefect, pode ser utilizado o comando abaixo:
 <br>
 
-```python
-prefect auth list-keys
+```shell
+   > prefect auth list-keys
 ```
 <br>
 Para mais detalhes sobre as chaves consultar a documentação oficial em: https://docs.prefect.io/orchestration/concepts/api_keys.html#using-api-keys
