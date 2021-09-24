@@ -532,7 +532,7 @@ Ao executar o comando com os parametros *`-t -i`* será apresentado similar ao s
    Flow URL: https://cloud.prefect.io/smedina1304-team-s-account/flow/ddbc922e-c398-87d58b852025
    └── ID: 11d0b127-9a83-81b162b0237b
    └── Project: My Tests
-   └── Labels: ['4ef5edf02069']
+   └── Labels: ['1d25689f7155']
    [2021-09-21 17:06:38,435] INFO - agent | Registering agent...
    [2021-09-21 17:06:38,717] INFO - agent | Registration successful!
 
@@ -543,9 +543,173 @@ Ao executar o comando com os parametros *`-t -i`* será apresentado similar ao s
    |_|   |_|  \___|_|  \___|\___|\__| /_/   \_\__, |\___|_| |_|\__|
                                              |___/
 
-   [2021-09-21 17:06:39,003] INFO - agent | Starting LocalAgent with labels ['4ef5edf02069']
+   [2021-09-21 17:06:39,003] INFO - agent | Starting LocalAgent with labels ['1d25689f7155']
    [2021-09-21 17:06:39,003] INFO - agent | Agent documentation can be found at https://docs.prefect.io/orchestration/
    [2021-09-21 17:06:39,004] INFO - agent | Waiting for flow runs...
 ```
 
+<br>
 
+Com o(s) container(s) em funcionamento e a DAG executando normalmente já conectada ao ambiente do Prefect, deve ser acessado a sua conta no ambiente em Cloud do Prefect e verificado se a mesma disponivel para ser executada, observe que no Prefect a DAG irá gerar um `flow`, e o processo será controlado por um agente do tipo `LocalAgent`.
+<br>
+
+Para ver os agentes conectados ao ambiente no momento acessar no menu principal a opção `Agents`.
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-07.png" width="700" style="max-width: 700px;">
+</p>
+<br>  
+
+Com os Agents listados e com status de `RUN`, temos o ambiente disponível para executar as DAGs que estão em cada agente.
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-08.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Para verificar os Flows disponiveis, acessar em `Dashbord` no menu principal, e acessar `Flows` no  menu secundário.
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-09.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Para o caso estão listados dois fluxos, onde cada um está rodando em um container, ambos podem ser selecionados e executados, observar que existe uma indicação que nenhuma schedule foi definida para estes fluxos, ou seja, não existe ciclos de execução programados.
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-10.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+5.4- Executando cada `DAG` ou `Flow` no Prefect:
+<br>
+Conforme os passos executados no item anterior, podermos ver que os fluxos estão disponíveis para serem executados, para uma execução simples, sem definir ciclos contínuos, devemos acesso o fluxo ou dag desejado na mesma tela acima desmonstrada, e deforma similara executar os mesmos passos demonstrados no item 4.4 deste documento, porem sem a necessidade de rodar o programa novamente pois o mesmo já está em funcionamento no container.
+<br>
+
+Teste 1:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-11.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Para verificar a execução, após ter acionado a função `RUN` ou `QUICK RUN`, no gráfico de monitoramento será incluido uma nova barra com a cor referente ao status de execução, no caso como finalizado com sucesso está verde:
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-12.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Para verificar os logs, da forma similar ao teste apresentado no item 4.4, selecionar a opção `RUNS` no submenu, e selecione a execução pela data\hora conforme desejado, ou pelo nome definio, porem normalmente quando utilizamos a opção `QUICK RUN` este nome é definido de forma aleatório, então a data e hora é uma referência mais precisa do momento a ser observado o log.
+
+<br>
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-13.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Acessando os Logs:
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-14.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-15.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+<br> 
+
+5.5- Executando o **`PUSH`** da imagem no `Docker Hub`:
+<br>
+
+Com os testes realizados na máquina de desenvolvimento, e estando ok, você pode realizar o *push* da imagem em um repositório para tornar disponível para replicar em outros locais e também deixar disponível para outras pessoas em caso de um resitório público.
+<br>
+Para este caso vamos utilizar o *[hub.docker.com](https://hub.docker.com/)*.
+
+- Primeiro passo é executar o login pelo docker:
+
+   ```shell
+      > docker login -u user_name
+      password prompt: <token> or <password>
+   ```
+
+- Com o login realizado e o acesso confirmado execute o commando de push definindo corretamente a TAG para a imagem, onde a TAG deve ter o seguinte formato:
+
+   - Sintax `[ID REPOSITORIO]/[ID CONTAINER]:[VERSAO]`:
+      - Sendo `/` e `:` separadores. 
+      
+      - O [ID REPOSITORIO] é a identificação do repositório identificado pela conta do usuário onde o container será armazenado. 
+      
+      - O [ID CONTAINER] é o nome de identificação do container e deve sempre ser informado, será seu nome de identificação. 
+      - A [VERSAO] onde se identifica a versão ou alguma caracteristica específica da imagem.
+      
+   `Atenção:` é necessário que todas as letras estejam em minusculo para todos os elementos informados.
+
+Comando para definir a tag antes do *push* (exemplo):
+
+```shell
+   > docker tag local/myprefectdags smedina1304/myprefectdags:v1.3
+```
+
+Comando para executar o *push* (exemplo):
+
+```shell
+   > docker push smedina1304/myprefectdags:v1.3
+```
+
+Após o comando verifique  no `Docker Hub` se a imagem foi devidamente atualizada.
+<br>
+<br>
+
+5.6- Executando no *[Docker Playground](https://labs.play-with-docker.com/)*:
+<br>
+
+O `Docker Playground` é um ambiente de testes docker em nuvem aberto para usuários do `Docker Hub`. Assim é necessário que você tem uma conta mesmo que free no *[hub.docker.com](https://hub.docker.com/)*, com o usuário disponível apenas acesse a página https://labs.play-with-docker.com/ e utilizar o mesma conta do `Docker Hub`, e crie uma instance:
+
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-16.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+
+Realize o pull da imagem e em seguida execute o container em background, podendo executar mais de uma container por instance, observando os limites de memória e cpu disponíveis.
+
+```shell
+   > docker pull smedina1304/myprefectdags:v1.3
+```
+
+<p align="left">
+   <img src="docs\images\prefect-Run-Test-17.png" width="700" style="max-width: 700px;">
+</p>
+<br> 
+
+Executando dois containers em background, cada um com uma DAG diferente configurada pelas variáveis de ambiente.
+
+Para segurança definindo como variavel de ambiente a API KEY do Prefect.
+```shell
+   > export PREFECT_KEY='<Informe a API KEY>'
+```
+
+DAG 1 
+
+```shell
+   > docker run -d -e PREFECT_AUTH_KEY=$PREFECT_KEY -e DAG_PATH='/app/dags/flow-test-hello' -e DAG_NAME='test-hello.py' --rm --name prefect_dag_1 smedina1304/myprefectdags:v1.3
+```
+
+DAG 2 
+
+```shell
+   > docker run -d -e PREFECT_AUTH_KEY=$PREFECT_KEY -e DAG_PATH='/app/dags/flow-titanic' -e DAG_NAME='titanic-analyse.py' --rm --name prefect_dag_2 smedina1304/myprefectdags:v1.3
+```
+
+Para verificar ser os container estão rodando, execute o `docker ps`:
+
+```shell
+   > docker ps
+   CONTAINER ID   IMAGE                            COMMAND               CREATED              STATUS              PORTS     NAMES
+   a9dd755e44e5   smedina1304/myprefectdags:v1.3   "/run_in_docker.sh"   About a minute ago   Up About a minute             prefect_dag_2
+   686b523b64b4   smedina1304/myprefectdags:v1.3   "/run_in_docker.sh"   2 minutes ago        Up 2 minutes 
+
+```
+
+Em seguida realize os testes via Prefect e boa diversão!!!

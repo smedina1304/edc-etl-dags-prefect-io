@@ -7,11 +7,12 @@ docker run -t -i -e PREFECT_AUTH_KEY='<KEY>' --rm --name prefect smedina1304/myp
 docker run -t -i -e PREFECT_AUTH_KEY='<KEY>' -e DAG_PATH='/app/dags/flow-test-hello' -e DAG_NAME='test-hello.py' --rm --name prefect -v data:/app/data smedina1304/myprefectdags:v1.3
 docker run -d -e PREFECT_AUTH_KEY='<KEY>' -e DAG_PATH='/app/dags/flow-titanic' -e DAG_NAME='titanic-analyse.py' --rm --name prefect -v data:/app/data smedina1304/myprefectdags:v1.3
 
-docker run -d -e PREFECT_AUTH_KEY=$PREFECT_KEY -e DAG_PATH='/app/dags/flow-titanic' -e DAG_NAME='titanic-analyse.py' --rm --name prefect -v data:/app/data smedina1304/myprefectdags:v1.3
+docker run -d -e PREFECT_AUTH_KEY=$PREFECT_KEY -e DAG_PATH='/app/dags/flow-test-hello' -e DAG_NAME='test-hello.py' --rm --name prefect_dag_1 smedina1304/myprefectdags:v1.3
+docker run -d -e PREFECT_AUTH_KEY=$PREFECT_KEY -e DAG_PATH='/app/dags/flow-titanic' -e DAG_NAME='titanic-analyse.py' --rm --name prefect_dag_2 smedina1304/myprefectdags:v1.3
 
 
 PUBLISH
-docker login -u smedina1304
+docker login -u <user>
 password prompt: <token>
 
 Se necessario mudar a tag para o repositório no Docker-hub
