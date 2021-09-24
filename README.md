@@ -260,19 +260,19 @@ Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
 - No lado Direito, próximo ao canto superior, clique em: `All Project -> New Project`.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-01.png" width="400" style="max-width: 400px;">
+      <img src="docs\images\prefect-New-Project-01.png" width="300" style="max-width: 400px;">
    </p>
 
    - Entre com o nome do projeto *'My Tests'* e confirme.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-02.png" width="400" style="max-width: 400px;">
+      <img src="docs\images\prefect-New-Project-02.png" width="300" style="max-width: 400px;">
    </p>
 
 - Selecione o projeto para visualizar os Flow que forem ou estiverem registados, no mesmo caminho da criação, porem agora selecionando o Projeto Desejado.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-03.png" width="400" style="max-width: 400px;">
+      <img src="docs\images\prefect-New-Project-03.png" width="300" style="max-width: 400px;">
    </p>
 <br>
 <br>
@@ -291,21 +291,21 @@ Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
 Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
    <br>
    <p align="left">
-      <img src="docs\images\prefect-Run-Test-01.png" width="500" style="max-width: 500px;">
+      <img src="docs\images\prefect-Run-Test-01.png" width="700" style="max-width: 700px;">
    </p>
 <br>
 
 - No Prefect Cloud, na Dashbord Agent, poderá verifica o registro do seu processo. Navegue no seu Dashbord para verificar as informações disponibilizadas e conhecer os recursos:
 <br>
 <p align="left">
-   <img src="docs\images\prefect-Run-Test-02.png" width="200" style="max-width: 200px;">
+   <img src="docs\images\prefect-Run-Test-02.png" width="300" style="max-width: 300px;">
 </p>
 <br>
 
 - Localize a opção `FLOWS` no Menu abaixo ao Nome do Projeto e acesse, em seguida localize na lista o flow `'flow-test-hello'`, e acesse:
 <br>
 <p align="left">
-   <img src="docs\images\prefect-Run-Test-03.png" width="200" style="max-width: 200px;">
+   <img src="docs\images\prefect-Run-Test-03.png" width="300" style="max-width: 300px;">
 </p>
 <br>
 
@@ -319,7 +319,7 @@ Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
 - Após executar verifique e navegue no Dashboard para analisar as informações registradas:
 <br>
 <p align="left">
-   <img src="docs\images\prefect-Run-Test-05.png" width="500" style="max-width: 500px;">
+   <img src="docs\images\prefect-Run-Test-05.png" width="700" style="max-width: 700px;">
 </p>
 <br>  
 
