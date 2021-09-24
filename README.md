@@ -69,7 +69,7 @@ No Windows via CMD utilizar "`activate.bat`".
 No `Linux` ou `MAC` utiliar "`activate`".
 <br>
 
-```console
+```shell
    > source .venv/bin/activate
 ```
 <br>
@@ -85,7 +85,7 @@ Para verificar que está funcionando e o ambiente foi ativado, deve aparecer o n
 Para desativar o ambiente virtual **`"venv"`**:
 <br>
 
-```console
+```shell
    > deactivate
 ```
 <br>
@@ -199,7 +199,7 @@ Assim que executado o comando deve ser retornado a sequinte mensagem:
 Assim que executado o comando deve ser retornado a sequinte mensagem, confirmando a configuração com sua conta no Prefect Cloud:
 <br>
 
-```console
+```shell
    Logged in to Prefect Cloud tenant 'XXXXX Account' (xxxxxx-xxxx-xxxxx)
 ```
 <br>
@@ -227,7 +227,7 @@ Para mais detalhes sobre as chaves consultar a documentação oficial em: https:
 
 ## 4- Executando o Primeiro Teste:
 
-4.1- Primeiro Teste para validar toda preparação e configuração do ambiente.
+4.1- Primeiro Teste para validar toda preparação e configuração do ambiente Python.
 <br>
 
 4.2- Verifique o código de exemplo em `*'dags\flow-test-hello\test-hello.py'*`.
@@ -239,15 +239,15 @@ Para mais detalhes sobre as chaves consultar a documentação oficial em: https:
 - Criando o projeto via comando no terminal:
 <br>
 
-```python
-prefect create project 'My Tests'
+```shell
+   prefect create project 'My Tests'
 ```
 <br>
 Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
 <br>
 
-```console
-My Tests created
+```shell
+   My Tests created
 ```
 
 <br>
@@ -277,15 +277,15 @@ My Tests created
 <br>
 <br>
 
-4.4- Executando o Flow `*'dags\flow-test-hello\test-hello.py'*`.
+4.4- Executando o Flow *`'dags\flow-test-hello\test-hello.py'`*.
 <br>
 
-- No terminal, acesse a pasta do Flow `*'dags\flow-test-hello'*` e execute a chamada via Python:
+- No terminal, acesse a pasta do Flow *`'dags\flow-test-hello'`* e execute a chamada via Python:
 <br>
 
-```python
-cd .\dags\flow-test-hello
-python test-hello.py
+```shell
+   > cd .\dags\flow-test-hello
+   > python test-hello.py
 ```
 <br>
 Sendo executando com sucesso o comando deverá retornar uma mensagem similar:
