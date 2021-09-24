@@ -260,19 +260,19 @@ Sendo executando com sucesso o comando deverá retornar a seguinte mensagem:
 - No lado Direito, próximo ao canto superior, clique em: `All Project -> New Project`.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-01.png" width="200" style="max-width: 200px;">
+      <img src="docs\images\prefect-New-Project-01.png" width="400" style="max-width: 400px;">
    </p>
 
    - Entre com o nome do projeto *'My Tests'* e confirme.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-02.png" width="200" style="max-width: 200px;">
+      <img src="docs\images\prefect-New-Project-02.png" width="400" style="max-width: 400px;">
    </p>
 
 - Selecione o projeto para visualizar os Flow que forem ou estiverem registados, no mesmo caminho da criação, porem agora selecionando o Projeto Desejado.
    <br>
    <p align="left">
-      <img src="docs\images\prefect-New-Project-03.png" width="200" style="max-width: 200px;">
+      <img src="docs\images\prefect-New-Project-03.png" width="400" style="max-width: 400px;">
    </p>
 <br>
 <br>
