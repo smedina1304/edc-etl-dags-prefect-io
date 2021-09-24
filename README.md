@@ -432,3 +432,121 @@ O retorno de ser semelhante ao abaixo:
    smedina1304/myprefectdags   v1.3      1fcc69fb574b   16 minutes ago   270MB   
 ```
 
+<br>
+
+5.2- Com a imagem criada e disponível no repositório local, o próximo passo é testar o funcionamento, mas antes vamos entendar alguns parametros definidos no `Dockerfile`:
+<br>
+
+Localize do arquivo os parametros abaixo:
+
+```dockerfile
+# Variaveis de Ambiente para parametrização de chamada da DAG
+   ENV PREFECT_AUTH_KEY $PREFECT_AUTH_KEY
+   ENV DAG_PATH $DAG_PATH
+   ENV DAG_NAME $DAG_NAME
+```
+
+Estas 3 variáveis de ambiente foram incluidas nas imagem para possibilitar a configuração dinâmica do ambiente no container no momento do startup, são elas:
+
+- `PREFECT_AUTH_KEY` -> Utilizada para autenticação no ambiente Cloud do Prefect utilizando a `API Key` gerada na configuração do ambiente em cloud (verificar item 3.3 deste documento).
+
+- `DAG_PATH` -> Utilizado para informar o caminho da pasta (`path`) onde está o programa (`DAG`) que será executada.
+
+- `DAG_NAME` -> Utilizado para informar o nome do programa (`DAG`) que será executada.
+
+Estas variáveis de ambientes, serão utilizadas pelo script shell `run_in_docker.sh`, conforme abaixo:
+
+```shell
+   #!/bin/bash
+
+   ## Exibe as variaveis DAG_PATH e DAG_NAME na console
+   echo "-> RUN IN DOCKER..."
+   echo "DAG_PATH: " $DAG_PATH
+   echo "DAG_NAME: " $DAG_NAME
+
+   ## Define o 'Time Zone' para o Brasil verifique o mais
+   ## adequado para o seu cenário 
+   echo "-> SETUP: TZ = UTC"
+   #export TZ=America/Sao_Paulo
+   export TZ=UTC
+
+   ## Configura o pacote Prefect instalado no Python do container
+   ## para utilizar o ambiente em Cloud
+   echo "-> Prefect Backend Cloud..."
+   prefect backend cloud
+
+   ## Executa o processo de autenticação na Cloud Prefect
+   ## utilizando a API KEY
+   echo "-> Login..."
+   prefect auth login --key $PREFECT_AUTH_KEY
+
+   ## Acessa a pasta da DAG que será executada
+   cd $DAG_PATH
+
+   ## Display da pasta atual e executa a DAG definida na variavel DAG_NAME
+   echo "Iniciando DAG"
+   pwd
+   python3 $DAG_NAME
+```
+<br>
+
+Com o entendimento dos parametros configurados via variáveis de ambiente descritos acima, para podermos executar o container localmente devemos utilizar o comando abaixo.
+
+```shell
+   > docker run -t -i -e PREFECT_AUTH_KEY='<KEY>' -e DAG_PATH='/app/dags/flow-test-hello' -e DAG_NAME='test-hello.py' --rm --name prefect smedina1304/myprefectdags:v1.3
+```
+
+Onde:
+
+- `docker run` -> É o comando para executar o container no ambiente.
+
+- `-t` -> Mostra a saida TTY.
+
+- `-i` -> Disponibiliza STDIN para interação com o container.
+
+- `-e` -> Define as variáveis de ambiente.
+   - `PREFECT_AUTH_KEY='<KEY>'` -> valor da API Key do Cloud Prefect, que deve ser informada no lugar de `<KEY>`.
+   - `DAG_PATH='/app/dags/flow-test-hello'` -> valor com o `path` onde será executado o programa (`DAG`) para o prefect.
+   - `DAG_NAME='test-hello.py'` -> valor com o `nome` do programa (`DAG`) que será executada.
+
+- `--rm` -> Informar ao docker que o container deve ser removido assim que finalizado.
+
+- `--name prefect` -> Nome que será atribuido ao container em execução, no caso `prefect`. 
+
+- `smedina1304/myprefectdags:v1.3` -> É a identificação da imagem que será utilizada para executar o container.
+
+<br>
+
+Ao executar o comando com os parametros *`-t -i`* será apresentado similar ao seguinte output:
+
+```shell
+   -> RUN IN DOCKER...
+   DAG_PATH:  /app/dags/flow-test-hello
+   DAG_NAME:  test-hello.py
+   -> SETUP: TZ = UTC
+   -> Prefect Backend Cloud...
+   Backend switched to cloud
+   -> Login...
+   Logged in to Prefect Cloud tenant 'SMedina Account' (smedina1304-team-s-account)
+   Iniciando DAG
+   /app/dags/flow-test-hello
+   Flow URL: https://cloud.prefect.io/smedina1304-team-s-account/flow/ddbc922e-c398-87d58b852025
+   └── ID: 11d0b127-9a83-81b162b0237b
+   └── Project: My Tests
+   └── Labels: ['4ef5edf02069']
+   [2021-09-21 17:06:38,435] INFO - agent | Registering agent...
+   [2021-09-21 17:06:38,717] INFO - agent | Registration successful!
+
+   ____            __           _        _                    _
+   |  _ \ _ __ ___ / _| ___  ___| |_     / \   __ _  ___ _ __ | |_
+   | |_) | '__/ _ \ |_ / _ \/ __| __|   / _ \ / _` |/ _ \ '_ \| __|
+   |  __/| | |  __/  _|  __/ (__| |_   / ___ \ (_| |  __/ | | | |_
+   |_|   |_|  \___|_|  \___|\___|\__| /_/   \_\__, |\___|_| |_|\__|
+                                             |___/
+
+   [2021-09-21 17:06:39,003] INFO - agent | Starting LocalAgent with labels ['4ef5edf02069']
+   [2021-09-21 17:06:39,003] INFO - agent | Agent documentation can be found at https://docs.prefect.io/orchestration/
+   [2021-09-21 17:06:39,004] INFO - agent | Waiting for flow runs...
+```
+
+
