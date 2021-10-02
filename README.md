@@ -2,7 +2,8 @@
    <img src="https://images.ctfassets.net/gm98wzqotmnx/3Ufcb7yYqcXBDlAhJ30gce/c237bb3254190795b30bf734f3cbc1d4/prefect-logo-full-gradient.svg" width="200" style="max-width: 200px;">
 </p>
 
-# dags-prefect-io
+# edc-etl-dags-prefect-io
+
 ## Objetivo:
 Este projeto tem como base o *[PREFECT CORE](https://www.prefect.io/core)* (open-source workflow). Estaremos buscando atender o processamento de Dataflows distribuidos pelo engine do prefect executando de forma direta na linha de comando via `python` ou em docker containers, viabilizando o processamento distribuido, utilizando o ambiente em nuvem do *[prefect.io](https://www.prefect.io/)* como orquestrador e dashboard dos processos.
 
